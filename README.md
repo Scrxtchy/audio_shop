@@ -43,10 +43,10 @@ If you'd like to read more about how this actually works, have a look [here](htt
 	vol 10
 
 	Example:
-	./mangle.py -i in.jpg -o out.jpg -e "vol 11"
-	./mangle.py -i in.mp4 -o out.mp4 -e "echo 0.8 0.88 60 0.4"
-	./mangle.py -i in.mp4 -o out.mp4 -e "pitch 5" --res 1280x720
-	./mangle.py -i in.mp4 -o out.mp4 -e "pitch 5" --blend 0.75 --color-format yuv444p --bits 8
+	./mangleScript.py -i in.jpg -o out.jpg -e "vol 11"
+	./mangleScript.py -i in.mp4 -o out.mp4 -e "echo 0.8 0.88 60 0.4"
+	./mangleScript.py -i in.mp4 -o out.mp4 -e "pitch 5" --res 1280x720
+	./mangleScript.py -i in.mp4 -o out.mp4 -e "pitch 5" --blend 0.75 --color-format yuv444p --bits 8
 
 	A full list of effects can be found here: http://sox.sourceforge.net/sox.html#EFFECTS
 
