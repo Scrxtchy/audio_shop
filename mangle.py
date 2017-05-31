@@ -4,7 +4,6 @@ import os.path
 import tempfile
 import subprocess
 import re
-import time
 
 def main():
 	arg = argparse.ArgumentParser(description="Audio shop")
@@ -74,7 +73,6 @@ def main():
 	outputYuv = tempfile.NamedTemporaryFile()
 	outputYuv.name = outputYuv.name + ".yuv"
 	subPres = subprocess.call("ffmpeg -y -i {0} -pix_fmt {1} {2} {3}".format(args.input, defaultVars['YUV_FMT'], FFMPEG_IN_OPTS, outputYuv.name), shell=True)
-	time.sleep(5)
 	print("Extracted raw image")
 
 
@@ -92,7 +90,6 @@ def main():
 	audioOut = tempfile.NamedTemporaryFile()
 	audioOut.name = audioOut.name + ".u" + defaultVars['bits']
 	subPres = subprocess.call("sox --bits {0} -c1 -r44100 --encoding unsigned-integer -t u{0} {1} --bits {0} -c1 -r44100 --encoding unsigned-integer -t u{0} {2} {3}".format(defaultVars['bits'], outputYuv.name, audioOut.name, args.effects), stdout=subprocess.PIPE, shell=True)
-	time.sleep(5)
 	if len(meta['audio']) is not 0:
 		print("Processing audio track as sound")
 		uselessAudioOut = tempfile.NamedTemporaryFile()
