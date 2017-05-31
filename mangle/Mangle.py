@@ -24,7 +24,7 @@ class Mangle:
 
 		if outfile[:1] is ".":
 			self.outfile = os.path.realpath(os.getcwd() + self.outfile)
-		elif "\\" not in outfile or "/" not in outfile:
+		elif "\\" not in outfile and "/" not in outfile:
 			self.outfile = os.path.realpath(os.getcwd() + '/' + self.outfile)
 
 		if not self.bits in {"8", "16", "24"}:
