@@ -5,7 +5,9 @@ If you'd like to read more about how this actually works, have a look [here](htt
 
 ## Usage
 
-	usage: mangle.py [-h] -i file -o output -e effects [--bits bits]
+	Place the mangler module in you pythonpath
+
+	usage: mangleScript.py [-h] -i file -o output -e effects [--bits bits]
 					 [--blend blend] [--colourFormat format] [--res resolution]
 	
 	Audio shop
