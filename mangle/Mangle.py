@@ -16,8 +16,17 @@ class Mangle:
 		self.colourFormat = colourFormat
 		self.res = res
 
-		if not os.path.isfile(self.infile):
-			MangleException("IO Error")
+		if not os.path.isfile(self.infile) or self.infile[:1] is ".":
+			if os.path.isfile(os.getcwd() + self.infile):
+				self.infile = os.path.realpath(os.getcwd() + self.infile)
+			else:
+				MangleException("IO Error")
+
+		if outfile[:1] is ".":
+			self.outfile = os.path.realpath(os.getcwd() + self.outfile)
+		elif "\\" not in outfile or "/" not in outfile:
+			self.outfile = os.path.realpath(os.getcwd() + '/' + self.outfile)
+
 		if not self.bits in {"8", "16", "24"}:
 			MangleException("Invalid Bits")
 		self.fileResolution = self.getResolution()
